@@ -1,0 +1,52 @@
+.dashboard {
+    padding: 20px;
+  }
+  
+  .overview {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .overview-item {
+    background-color: #3a3d5a;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .expense-history {
+    margin-bottom: 20px;
+  }
+  
+  .expense-history ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .expense-history li {
+    background-color: #3a3d5a;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .statistics {
+    background-color: #3a3d5a;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .add-expense-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3a3d5a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  

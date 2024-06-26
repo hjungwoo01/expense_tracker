@@ -1,0 +1,20 @@
+.sidebar {
+    width: 250px;
+    background-color: #1a1c2c;
+    color: white;
+    padding: 20px;
+  }
+  
+  .sidebar-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .MuiListItemIcon-root {
+    color: white;
+  }
+  
+  .MuiListItemText-primary {
+    color: white;
+  }
+  
