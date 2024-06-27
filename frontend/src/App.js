@@ -2,8 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
-import Calendar from './pages/Calendar';
-import Activities from './pages/Activities';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ExpenseList from './pages/ExpenseList';
@@ -23,8 +21,6 @@ function App() {
             <div className="content">
               <Routes>
                 <Route path="/" element={<Dashboard />} />
-                <Route path="/calendar" element={<Calendar />} />
-                <Route path="/activities" element={<Activities />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/expenses" element={<ExpenseList />} />

@@ -1,6 +1,19 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .app {
   display: flex;
-  height: 100vh;
+  height: 100%;
+  flex: 1;
 }
 
 .content {
@@ -8,4 +21,7 @@
   padding: 20px;
   background-color: #2b2d42;
   color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }

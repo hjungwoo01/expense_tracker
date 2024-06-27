@@ -1,52 +1,79 @@
 .dashboard {
-    padding: 20px;
-  }
-  
-  .overview {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
-  .overview-item {
-    background-color: #3a3d5a;
-    padding: 10px 20px;
-    border-radius: 5px;
-  }
-  
-  .expense-history {
-    margin-bottom: 20px;
-  }
-  
-  .expense-history ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .expense-history li {
-    background-color: #3a3d5a;
-    margin-bottom: 5px;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  .statistics {
-    background-color: #3a3d5a;
-    padding: 20px;
-    border-radius: 5px;
-  }
-  
-  .add-expense-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #3a3d5a;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+}
+
+.overview, .controls, .chart-row, .statistics {
+  width: 90%;
+  margin: 20px 0;
+}
+
+.chart-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex: 1;
+}
+
+.expense-history, .pie-chart {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.expense-history ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.expense-history li {
+  margin-bottom: 10px;
+}
+
+.add-expense-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}

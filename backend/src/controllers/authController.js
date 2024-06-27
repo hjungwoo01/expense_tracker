@@ -5,14 +5,16 @@ const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '30d' });
 };
 
+exports.generateToken = generateToken;
+
 exports.register = async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, name, email } = req.body;
   try {
-    const user = await User.create({ username, password });
+    const user = await User.create({ username, password, name, email });
     res.status(201).json({
       _id: user._id,
       username: user.username,
-      token: generateToken(user._id)
+      token: generateToken(user._id),
     });
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -27,7 +29,7 @@ exports.login = async (req, res) => {
       res.json({
         _id: user._id,
         username: user.username,
-        token: generateToken(user._id)
+        token: generateToken(user._id),
       });
     } else {
       res.status(401).json({ error: 'Invalid credentials' });

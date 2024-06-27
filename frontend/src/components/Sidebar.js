@@ -2,8 +2,6 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import AssignmentIcon from '@mui/icons-material/Assignment';
 import ListIcon from '@mui/icons-material/List';
 import AddIcon from '@mui/icons-material/Add';
 import CategoryIcon from '@mui/icons-material/Category';
@@ -21,14 +19,6 @@ const Sidebar = () => {
         <ListItem button component={Link} to="/">
           <ListItemIcon><DashboardIcon /></ListItemIcon>
           <ListItemText primary="Dashboard" />
-        </ListItem>
-        <ListItem button component={Link} to="/calendar">
-          <ListItemIcon><CalendarTodayIcon /></ListItemIcon>
-          <ListItemText primary="Calendar" />
-        </ListItem>
-        <ListItem button component={Link} to="/activities">
-          <ListItemIcon><AssignmentIcon /></ListItemIcon>
-          <ListItemText primary="Activities" />
         </ListItem>
         <ListItem button component={Link} to="/expenses">
           <ListItemIcon><ListIcon /></ListItemIcon>
@@ -52,10 +42,6 @@ const Sidebar = () => {
             <ListItem button component={Link} to="/login">
               <ListItemIcon><ExitToAppIcon /></ListItemIcon>
               <ListItemText primary="Login" />
-            </ListItem>
-            <ListItem button component={Link} to="/register">
-              <ListItemIcon><ExitToAppIcon /></ListItemIcon>
-              <ListItemText primary="Register" />
             </ListItem>
           </>
         )}

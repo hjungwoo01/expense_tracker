@@ -17,6 +17,10 @@ const ManageCategories = () => {
     setEditCategoryName('');
   };
 
+  const handleDeleteCategory = async (id) => {
+    await deleteCategory(id);
+  };
+
   return (
     <div>
       <h1>Manage Categories</h1>
@@ -32,8 +36,8 @@ const ManageCategories = () => {
         {categories.map((cat) => (
           <li key={cat._id}>
             {cat.name}
-            <button onClick={() => deleteCategory(cat._id)}>Delete</button>
-            <form onSubmit={() => handleEditCategory(cat._id)}>
+            <button onClick={() => handleDeleteCategory(cat._id)}>Delete</button>
+            <form onSubmit={(e) => {e.preventDefault(); handleEditCategory(cat._id)}}>
               <input
                 type="text"
                 value={editCategoryName}
