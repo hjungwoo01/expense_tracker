@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import api from '../services/api';
 import { AuthContext } from '../context/AuthContext';
 import { CategoryContext } from '../context/CategoryContext';
+import { Container, TextField, MenuItem, Button, Typography, Box, FormControl, InputLabel, Select } from '@mui/material';
 
 const AddExpense = () => {
   const [description, setDescription] = useState('');
@@ -27,50 +28,91 @@ const AddExpense = () => {
     const expense = { description, amount, category, date, currency };
     try {
       await api.post('/expenses', expense);
-      // Optionally, you could redirect to the expense list or clear the form
+      window.location.href = '/expenses';
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    <div>
-      <h1>Add Expense</h1>
+    <Container maxWidth="sm" style={{ color: 'white', paddingTop: '20px' }}>
+      <h1 align="center" gutterBottom>
+        Add Expense
+      </h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Description:</label>
-          <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
-        </div>
-        <div>
-          <label>Amount:</label>
-          <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
-        </div>
-        <div>
-          <label>Category:</label>
-          <select value={category} onChange={(e) => setCategory(e.target.value)}>
-            <option value="">Select a category</option>
-            {categories.map((cat) => (
-              <option key={cat._id} value={cat.name}>{cat.name}</option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label>Date:</label>
-          <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
-        </div>
-        <div>
-          <label>Currency:</label>
-          <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
-            <option value="">Select a currency</option>
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="GBP">GBP</option>
-            {/* Add more currencies as needed */}
-          </select>
-        </div>
-        <button type="submit">Add Expense</button>
+        <Box mb={2}>
+          <TextField
+            label="Description"
+            fullWidth
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            variant="outlined"
+            InputLabelProps={{ style: { color: 'white' } }}
+            InputProps={{ style: { color: 'white' } }}
+          />
+        </Box>
+        <Box mb={2}>
+          <TextField
+            label="Amount"
+            fullWidth
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            variant="outlined"
+            InputLabelProps={{ style: { color: 'white' } }}
+            InputProps={{ style: { color: 'white' } }}
+          />
+        </Box>
+        <Box mb={2}>
+          <FormControl fullWidth variant="outlined">
+            <InputLabel style={{ color: 'white' }}>Category</InputLabel>
+            <Select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              label="Category"
+              style={{ color: 'white' }}
+            >
+              <MenuItem value=""><em>Select a category</em></MenuItem>
+              {categories.map((cat) => (
+                <MenuItem key={cat._id} value={cat.name}>{cat.name}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Box>
+        <Box mb={2}>
+          <TextField
+            label="Date"
+            fullWidth
+            type="date"
+            InputLabelProps={{ shrink: true, style: { color: 'white' } }}
+            InputProps={{ style: { color: 'white' } }}
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            variant="outlined"
+          />
+        </Box>
+        <Box mb={2}>
+          <FormControl fullWidth variant="outlined">
+            <InputLabel style={{ color: 'white' }}>Currency</InputLabel>
+            <Select
+              value={currency}
+              onChange={(e) => setCurrency(e.target.value)}
+              label="Currency"
+              style={{ color: 'white' }}
+            >
+              <MenuItem value=""><em>Select a currency</em></MenuItem>
+              <MenuItem value="SGD">SGD</MenuItem>
+              <MenuItem value="HKD">HKD</MenuItem>
+              <MenuItem value="KRW">KRW</MenuItem>
+              <MenuItem value="USD">USD</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+        <Button variant="contained" color="primary" type="submit" fullWidth>
+          Add Expense
+        </Button>
       </form>
-    </div>
+    </Container>
   );
 };
 

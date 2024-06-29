@@ -1,79 +1,53 @@
 .dashboard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-  height: 100%;
+  background-color: #2b2d42;
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.overview, .controls, .chart-row, .statistics {
-  width: 90%;
-  margin: 20px 0;
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .chart-row {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.expense-history {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.pie-chart {
   flex: 1;
 }
 
-.expense-history, .pie-chart {
-  flex: 1;
-  margin: 0 10px;
-}
-
-.expense-history ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.expense-history li {
-  margin-bottom: 10px;
+.statistics {
+  margin-bottom: 20px;
 }
 
 .add-expense-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 50px;
-  height: 50px;
-  background-color: #007bff;
-  color: white;
-  border: none;
   border-radius: 50%;
+  width: 60px;
+  height: 60px;
   font-size: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
 }
 
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 5px;
-  width: 400px;
-  max-width: 90%;
-  position: relative;
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  font-size: 20px;
+li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
 }

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ListIcon from '@mui/icons-material/List';
 import AddIcon from '@mui/icons-material/Add';
@@ -14,35 +14,35 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
-      <h2 className="sidebar-title">Hey, {user ? user.username : 'Guest'}</h2>
+      <h2 className="sidebar-title">Welcome!</h2>
       <List>
-        <ListItem button component={Link} to="/">
+        <ListItemButton component={Link} to="/">
           <ListItemIcon><DashboardIcon /></ListItemIcon>
           <ListItemText primary="Dashboard" />
-        </ListItem>
-        <ListItem button component={Link} to="/expenses">
+        </ListItemButton>
+        <ListItemButton component={Link} to="/expenses">
           <ListItemIcon><ListIcon /></ListItemIcon>
           <ListItemText primary="Expenses" />
-        </ListItem>
-        <ListItem button component={Link} to="/add-expense">
+        </ListItemButton>
+        <ListItemButton component={Link} to="/add-expense">
           <ListItemIcon><AddIcon /></ListItemIcon>
           <ListItemText primary="Add Expense" />
-        </ListItem>
-        <ListItem button component={Link} to="/manage-categories">
+        </ListItemButton>
+        <ListItemButton  component={Link} to="/manage-categories">
           <ListItemIcon><CategoryIcon /></ListItemIcon>
           <ListItemText primary="Manage Categories" />
-        </ListItem>
+        </ListItemButton>
         {user ? (
-          <ListItem button onClick={logout}>
+          <ListItemButton onClick={logout}>
             <ListItemIcon><ExitToAppIcon /></ListItemIcon>
             <ListItemText primary="Logout" />
-          </ListItem>
+          </ListItemButton>
         ) : (
           <>
-            <ListItem button component={Link} to="/login">
+            <ListItemButton component={Link} to="/login">
               <ListItemIcon><ExitToAppIcon /></ListItemIcon>
               <ListItemText primary="Login" />
-            </ListItem>
+            </ListItemButton>
           </>
         )}
       </List>

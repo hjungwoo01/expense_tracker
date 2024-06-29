@@ -65,7 +65,7 @@ const CategoryProvider = ({ children }) => {
   };
 
   return (
-    <CategoryContext.Provider value={{ categories, loading, error, fetchCategories, addCategory, editCategory, deleteCategory }}>
+    <CategoryContext.Provider value={{ categories, loading, error, setError, fetchCategories, addCategory, editCategory, deleteCategory }}>
       {children}
     </CategoryContext.Provider>
   );

@@ -12,6 +12,12 @@ exports.getCategories = async (req, res) => {
 exports.addCategory = async (req, res) => {
   try {
     const { name } = req.body;
+
+    const existingCategory = await Category.findOne({ name, user: req.user._id });
+    if (existingCategory) {
+      return res.status(400).json({ error: 'Category name already exists' });
+    }
+
     const newCategory = new Category({
       name,
       user: req.user._id,
@@ -32,6 +38,11 @@ exports.editCategory = async (req, res) => {
     if (category.user.toString() !== req.user._id.toString()) {
       return res.status(401).json({ error: 'Not authorized to edit this category' });
     }
+    
+    const existingCategory = await Category.findOne({ name, user: req.user._id });
+    if (existingCategory) {
+      return res.status(400).json({ error: 'Category name already exists' });
+    }
 
     category.name = name;
     const updatedCategory = await category.save();
@@ -50,7 +61,7 @@ exports.deleteCategory = async (req, res) => {
       return res.status(401).json({ error: 'Not authorized to delete this category' });
     }
 
-    await category.remove();
+    await category.deleteOne();
     res.status(200).json({ message: 'Category deleted' });
   } catch (error) {
     res.status(500).json({ error: error.message });
