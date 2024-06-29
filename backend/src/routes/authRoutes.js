@@ -17,7 +17,7 @@ router.get('/google/callback',
     const token = generateToken(req.user._id);
     res.redirect(`http://localhost:3000?token=${token}`);
   });
-
+  
 router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
